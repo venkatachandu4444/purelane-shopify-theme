@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero"
+    },
+    "reviews": {
+      "type": "reviews"
+    },
+    "best_combos": {
+      "type": "best-combos"
+    },
+    "bundles": {
+      "type": "bundles"
+    },
+    "shop_grid": {
+      "type": "shop-grid"
+    }
+  },
+  "order": [
+    "hero",
+    "reviews",
+    "best_combos",
+    "bundles",
+    "shop_grid"
+  ]
+}

@@ -1,0 +1,77 @@
+{% comment %}
+  Accepts:
+  - product: {Object} Product Liquid object (required)
+  - show_rating: {Boolean} Show the product rating (optional)
+
+  Usage:
+  {% render 'product-card', product: product %}
+{% endcomment %}
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign compare_at_price = current_variant.compare_at_price
+  assign price = current_variant.price
+  assign on_sale = false
+  if compare_at_price > price
+    assign on_sale = true
+  endif
+
+  assign savings_percent = 0
+  if on_sale
+    assign savings_percent = compare_at_price | minus: price | times: 100.0 | divided_by: compare_at_price | round
+  endif
+
+  assign tag_pill = blank
+  for tag in product.tags
+    if tag == 'Best seller' or tag == 'New' or tag == 'Top rated'
+      assign tag_pill = tag
+      break
+    endif
+  endfor
+-%}
+
+<article class="glass card rv">
+  <div class="shot">
+    {%- if tag_pill != blank -%}
+      <span class="pill" style="z-index: 2;">{{ tag_pill }}</span>
+    {%- elsif product.available == false -%}
+      <span class="pill" style="z-index: 2; color: var(--paper-2); border-color: var(--paper-3);">Sold out</span>
+    {%- endif -%}
+
+    <a href="{{ product.url }}" tabindex="-1" aria-hidden="true" style="display:flex; justify-content:center; align-items:center; width:100%; height:100%;">
+      {%- if product.featured_image -%}
+        <img src="{{ product.featured_image | image_url: width: 400 }}" 
+             alt="{{ product.featured_image.alt | escape }}" 
+             loading="lazy" 
+             width="{{ product.featured_image.width }}" 
+             height="{{ product.featured_image.height }}" 
+             style="max-height: 122px; width: auto; object-fit: contain; filter: drop-shadow(0 8px 13px rgba(0,74,66,.13));">
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'pimg' }}
+      {%- endif -%}
+    </a>
+  </div>
+  
+  <h4><a href="{{ product.url }}">{{ product.title | escape }}</a></h4>
+  
+  {%- if show_rating -%}
+    <div class="rate"><b>★ 4.8</b> · 237 reviews</div>
+  {%- endif -%}
+  
+  <div class="pr">
+    <strong>{{ price | money }}</strong>
+    {%- if on_sale -%}
+      <s>{{ compare_at_price | money }}</s>
+      <em>{{ savings_percent }}% off</em>
+    {%- endif -%}
+  </div>
+
+  {%- if product.available -%}
+    <form method="post" action="/cart/add" class="add-to-cart-form">
+      <input type="hidden" name="id" value="{{ current_variant.id }}">
+      <button type="submit" class="btn btn-ghost btn-sm" style="width: 100%;">Add to cart</button>
+    </form>
+  {%- else -%}
+    <button type="button" class="btn btn-ghost btn-sm" disabled style="width: 100%; opacity: 0.5;">Sold out</button>
+  {%- endif -%}
+</article>

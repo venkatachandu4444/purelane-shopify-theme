@@ -1,0 +1,324 @@
+{% schema %}
+{
+  "name": "Best Selling Combos",
+  "tag": "section",
+  "class": "section-best-combos",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Pre-built to save you money"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Best selling combos"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Swipe through the boxes people order most. Each one is already priced below buying the same products on their own."
+    },
+    {
+      "type": "text",
+      "id": "footer_note",
+      "label": "Footer Note",
+      "default": "Tapping \"Shop bundle\" opens the bundle picker with these products already added. You can still swap anything before you pay."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "combo",
+      "name": "Combo",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "is_hero",
+          "label": "Highlight as Hero Combo",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "save_badge",
+          "label": "Save Badge Text",
+          "default": "You save ₹398"
+        },
+        {
+          "type": "text",
+          "id": "flag_text",
+          "label": "Flag Text (e.g. Most popular)"
+        },
+        {
+          "type": "header",
+          "content": "Product 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image (Overrides Icon)"
+        },
+        {
+          "type": "text",
+          "id": "icon_1_class",
+          "label": "Icon Class (e.g. p-kitchen)",
+          "default": "p-kitchen"
+        },
+        {
+          "type": "text",
+          "id": "icon_1_text",
+          "label": "Icon Text",
+          "default": "Cuts grease instantly"
+        },
+        {
+          "type": "header",
+          "content": "Product 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image (Overrides Icon)"
+        },
+        {
+          "type": "text",
+          "id": "icon_2_class",
+          "label": "Icon Class (e.g. p-dish)"
+        },
+        {
+          "type": "text",
+          "id": "icon_2_text",
+          "label": "Icon Text"
+        },
+        {
+          "type": "header",
+          "content": "Product 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image (Overrides Icon)"
+        },
+        {
+          "type": "text",
+          "id": "icon_3_class",
+          "label": "Icon Class (e.g. p-tap)"
+        },
+        {
+          "type": "text",
+          "id": "icon_3_text",
+          "label": "Icon Text"
+        },
+        {
+          "type": "header",
+          "content": "Details"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Kitchen essentials"
+        },
+        {
+          "type": "text",
+          "id": "included_count",
+          "label": "Included Count Text",
+          "default": "3 products"
+        },
+        {
+          "type": "textarea",
+          "id": "included_text",
+          "label": "Included Description",
+          "default": "Includes: Foaming Kitchen Cleaner, Dishwash Gel & Tap Cleaner."
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "₹499"
+        },
+        {
+          "type": "text",
+          "id": "compare_price",
+          "label": "Compare Price",
+          "default": "₹897"
+        },
+        {
+          "type": "text",
+          "id": "save_text",
+          "label": "Save Text",
+          "default": "Save ₹398"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Best Selling Combos",
+      "blocks": [
+        {
+          "type": "combo",
+          "settings": {
+            "is_hero": false,
+            "save_badge": "You save ₹398",
+            "flag_text": "Most popular",
+            "icon_1_class": "p-kitchen",
+            "icon_1_text": "Cuts grease instantly",
+            "icon_2_class": "p-dish",
+            "icon_2_text": "Squeaky clean dishes",
+            "icon_3_class": "p-tap",
+            "icon_3_text": "Melts hard water stains",
+            "title": "Kitchen essentials",
+            "included_count": "3 products",
+            "included_text": "Includes: Foaming Kitchen Cleaner, Dishwash Gel & Tap Cleaner. Everything for a sparkling kitchen, no need to pick separately.",
+            "price": "₹499",
+            "compare_price": "₹897",
+            "save_text": "Save ₹398"
+          }
+        },
+        {
+          "type": "combo",
+          "settings": {
+            "is_hero": false,
+            "save_badge": "You save ₹448",
+            "flag_text": "",
+            "icon_1_class": "p-laundry",
+            "icon_1_text": "Removes tough stains & odour",
+            "icon_2_class": "tile",
+            "icon_2_text": "Softens & freshens every wash",
+            "icon_3_class": "p-wm",
+            "icon_3_text": "Deep-cleans your machine",
+            "title": "Laundry care bundle",
+            "included_count": "3 products",
+            "included_text": "Includes: Laundry Detergent, Fabric Conditioner & Machine Cleaner Powder. Softer, fresher wash, all in one box.",
+            "price": "₹499",
+            "compare_price": "₹947",
+            "save_text": "Save ₹448"
+          }
+        },
+        {
+          "type": "combo",
+          "settings": {
+            "is_hero": true,
+            "save_badge": "Biggest saving",
+            "flag_text": "Best value",
+            "icon_1_class": "p-kitchen",
+            "icon_1_text": "Cuts grease instantly",
+            "icon_2_class": "p-floor",
+            "icon_2_text": "Kills 99.9% germs",
+            "icon_3_class": "p-handwash",
+            "icon_3_text": "Gentle hydration for hands",
+            "title": "Complete home bundle",
+            "included_count": "5 products",
+            "included_text": "Includes: Kitchen Cleaner, Laundry Detergent, Floor Cleaner, Toilet Cleaner & Handwash. Our biggest saving box.",
+            "price": "₹799",
+            "compare_price": "₹1,495",
+            "save_text": "Save ₹696"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="sec" id="combos" data-scene="3">
+  <div class="wrap">
+    
+    <div class="panel-head rv">
+      <span class="kicker">{{ section.settings.kicker | escape }}</span>
+      <h2 class="d2" style="margin-top:12px">{{ section.settings.heading | escape }}</h2>
+      <div class="rule">
+        <i></i>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6.5 3.5-11 8-12.5C20 15 16.5 20 12 21Z"/><path d="M12 21C12 14.5 8.5 10 4 8.5 4 15 7.5 20 12 21Z"/></svg>
+        <i></i>
+      </div>
+      <p class="lede" style="margin:14px auto 0">{{ section.settings.description | escape }}</p>
+    </div>
+    
+    <div class="comborail rv">
+      {%- for block in section.blocks -%}
+        <article class="glass combo {% if block.settings.is_hero %}hero-combo{% endif %}" {{ block.shopify_attributes }}>
+          <div class="tray">
+            {%- if block.settings.save_badge != blank -%}
+              <span class="save">{{ block.settings.save_badge | escape }}</span>
+            {%- endif -%}
+            {%- if block.settings.flag_text != blank -%}
+              <span class="flag">{{ block.settings.flag_text | escape }}</span>
+            {%- endif -%}
+            <div class="stack">
+              {%- if block.settings.icon_1_class != blank or block.settings.image_1 != blank -%}
+                <span class="it">
+                  {%- if block.settings.image_1 != blank -%}
+                    <img src="{{ block.settings.image_1 | image_url: width: 120 }}" alt="{{ block.settings.icon_1_text | escape }}" style="height: 60px; object-fit: contain; margin: 0 auto;" loading="lazy">
+                  {%- elsif block.settings.icon_1_class == 'tile' -%}
+                    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6.5 3.5-11 8-12.5C20 15 16.5 20 12 21Z"/><path d="M12 21C12 14.5 8.5 10 4 8.5 4 15 7.5 20 12 21Z"/></svg></span>
+                  {%- else -%}
+                    <span class="pimg {{ block.settings.icon_1_class | escape }}" role="img"></span>
+                  {%- endif -%}
+                  <span>{{ block.settings.icon_1_text | escape }}</span>
+                </span>
+              {%- endif -%}
+              
+              {%- if block.settings.icon_2_class != blank or block.settings.image_2 != blank -%}
+                <span class="plus" aria-hidden="true">+</span>
+                <span class="it">
+                  {%- if block.settings.image_2 != blank -%}
+                    <img src="{{ block.settings.image_2 | image_url: width: 120 }}" alt="{{ block.settings.icon_2_text | escape }}" style="height: 60px; object-fit: contain; margin: 0 auto;" loading="lazy">
+                  {%- elsif block.settings.icon_2_class == 'tile' -%}
+                    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6.5 3.5-11 8-12.5C20 15 16.5 20 12 21Z"/><path d="M12 21C12 14.5 8.5 10 4 8.5 4 15 7.5 20 12 21Z"/></svg></span>
+                  {%- else -%}
+                    <span class="pimg {{ block.settings.icon_2_class | escape }}" role="img"></span>
+                  {%- endif -%}
+                  <span>{{ block.settings.icon_2_text | escape }}</span>
+                </span>
+              {%- endif -%}
+              
+              {%- if block.settings.icon_3_class != blank or block.settings.image_3 != blank -%}
+                <span class="plus" aria-hidden="true">+</span>
+                <span class="it">
+                  {%- if block.settings.image_3 != blank -%}
+                    <img src="{{ block.settings.image_3 | image_url: width: 120 }}" alt="{{ block.settings.icon_3_text | escape }}" style="height: 60px; object-fit: contain; margin: 0 auto;" loading="lazy">
+                  {%- elsif block.settings.icon_3_class == 'tile' -%}
+                    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6.5 3.5-11 8-12.5C20 15 16.5 20 12 21Z"/><path d="M12 21C12 14.5 8.5 10 4 8.5 4 15 7.5 20 12 21Z"/></svg></span>
+                  {%- else -%}
+                    <span class="pimg {{ block.settings.icon_3_class | escape }}" role="img"></span>
+                  {%- endif -%}
+                  <span>{{ block.settings.icon_3_text | escape }}</span>
+                </span>
+              {%- endif -%}
+            </div>
+          </div>
+          <div class="body">
+            <h3>{{ block.settings.title | escape }}</h3>
+            <div class="cnt">{{ block.settings.included_count | escape }}</div>
+            <p class="inc">{{ block.settings.included_text | escape }}</p>
+            <div class="prow">
+              <strong>{{ block.settings.price | escape }}</strong>
+              {%- if block.settings.compare_price != blank -%}
+                <s>{{ block.settings.compare_price | escape }}</s>
+              {%- endif -%}
+              {%- if block.settings.save_text != blank -%}
+                <em>{{ block.settings.save_text | escape }}</em>
+              {%- endif -%}
+            </div>
+            <div class="fine">Inclusive of all taxes &middot; COD available</div>
+            <a class="btn {% if block.settings.is_hero %}btn-primary{% else %}btn-ghost{% endif %}" href="{{ block.settings.button_link | default: '#bundles' }}">Shop bundle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m-5-6 6 6-6 6"/></svg></a>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+    
+    <div class="swipecue" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m-5-6 6 6-6 6"/></svg>Swipe for more combos
+    </div>
+    <p class="railnote">{{ section.settings.footer_note | escape }}</p>
+    
+  </div>
+</section>

@@ -1,0 +1,84 @@
+{% schema %}
+{
+  "name": "Newsletter",
+  "tag": "section",
+  "class": "section-newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Join the Purelane Club"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get ₹100 off your first bundle"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Plus first access to new launches and restocks."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Get my ₹100 off"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success Message",
+      "default": "Thanks for joining! Check your email for your code."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="sec" data-scene="4">
+  <div class="wrap">
+    <div class="glass signup rv">
+      <span class="kicker">{{ section.settings.kicker | escape }}</span>
+      <h2 class="d2" style="margin-top:12px">{{ section.settings.heading | escape }}</h2>
+      <p class="lede" style="margin:0 auto">{{ section.settings.description | escape }}</p>
+      
+      {% form 'customer', class: 'newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        {%- if form.posted_successfully? -%}
+          <p class="form-success" style="margin-top: 16px; color: #1f6b4e; font-weight: 500;">
+            {{ section.settings.success_message | escape }}
+          </p>
+        {%- else -%}
+          <input 
+            type="email" 
+            name="contact[email]"
+            id="NewsletterEmail-{{ section.id }}"
+            placeholder="your@email.com" 
+            aria-label="Email address" 
+            value="{{ form.email }}"
+            required
+            {% if form.errors %}
+              aria-invalid="true"
+              aria-describedby="Newsletter-error-{{ section.id }}"
+            {% endif %}
+          >
+          <button class="btn btn-primary" type="submit">{{ section.settings.button_label | escape }}</button>
+          
+          {%- if form.errors -%}
+            <small class="form-error" id="Newsletter-error-{{ section.id }}" style="display:block; margin-top: 8px; color: #b03a2e;">
+              {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+            </small>
+          {%- endif -%}
+        {%- endif -%}
+      {% endform %}
+    </div>
+  </div>
+</section>

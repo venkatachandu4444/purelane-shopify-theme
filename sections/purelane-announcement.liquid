@@ -1,0 +1,78 @@
+{% schema %}
+{
+  "name": "Purelane Ticker",
+  "tag": "section",
+  "class": "section-ticker",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free shipping"
+        },
+        {
+          "type": "text",
+          "id": "bold_text",
+          "label": "Bold Text",
+          "default": "on every bundle across India"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purelane Ticker",
+      "blocks": [
+        {
+          "type": "message",
+          "settings": {
+            "text": "Free shipping",
+            "bold_text": "on every bundle across India"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "text": "100% plant-based",
+            "bold_text": "and non-toxic"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "text": "Loved by",
+            "bold_text": "30,000+ happy homes"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "text": "Buy 3",
+            "bold_text": "at flat ₹499"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    {%- for i in (1..3) -%}
+      {%- for block in section.blocks -%}
+        <span {{ block.shopify_attributes }}>
+          {{ block.settings.text | escape }} 
+          {%- if block.settings.bold_text != blank -%}
+            <b>{{ block.settings.bold_text | escape }}</b>
+          {%- endif -%}
+        </span>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</div>

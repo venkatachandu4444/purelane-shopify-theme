@@ -1,0 +1,366 @@
+{% schema %}
+{
+  "name": "Hero Section",
+  "tag": "section",
+  "class": "section-hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading Line 1",
+      "default": "Clean"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading Line 2",
+      "default": "That"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_3",
+      "label": "Heading Line 3 (Accent Color)",
+      "default": "Lasts"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Homecare that works on the toughest grime, made from plants. Kind to your home, your family and the world outside it."
+    },
+    {
+      "type": "text",
+      "id": "cta_text_1",
+      "label": "Primary CTA Text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "cta_link_1",
+      "label": "Primary CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_text_2",
+      "label": "Secondary CTA Text",
+      "default": "How it works"
+    },
+    {
+      "type": "url",
+      "id": "cta_link_2",
+      "label": "Secondary CTA Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hero_product",
+      "name": "Hero Product Slide",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "product",
+          "id": "linked_product",
+          "label": "Link a Shopify Product",
+          "info": "This will pull the live price and compare-at price."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Bottle 1 Image (Overrides Vector)"
+        },
+        {
+          "type": "text",
+          "id": "icon_class_1",
+          "label": "Bottle 1 Icon Class (e.g. p-kbtl)",
+          "default": "p-kbtl"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Bottle 2 Image (Overrides Vector)"
+        },
+        {
+          "type": "text",
+          "id": "icon_class_2",
+          "label": "Bottle 2 Icon Class (Optional)",
+          "info": "Used for 'Any 2 products' slide"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Bottle 3 Image (Overrides Vector)"
+        },
+        {
+          "type": "text",
+          "id": "icon_class_3",
+          "label": "Bottle 3 Icon Class (Optional)",
+          "info": "Used for 'Any 3 products' slide"
+        },
+        {
+          "type": "text",
+          "id": "slide_label",
+          "label": "Slide Tag Label",
+          "default": "Single bottle"
+        },
+        {
+          "type": "text",
+          "id": "custom_price",
+          "label": "Fallback Price (If no product linked)",
+          "default": "200"
+        },
+        {
+          "type": "text",
+          "id": "custom_compare_price",
+          "label": "Fallback Compare Price (If no product linked)",
+          "default": "299"
+        },
+        {
+          "type": "text",
+          "id": "discount_text",
+          "label": "Discount Tag Text",
+          "default": "33% off"
+        }
+      ]
+    },
+    {
+      "type": "badge",
+      "name": "Badge",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG"
+        },
+        {
+          "type": "textarea",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "Plant<br>powered",
+          "info": "Use <br> for a new line"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+      "blocks": [
+        {
+          "type": "badge",
+          "settings": {
+            "badge_text": "Plant<br>powered",
+            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21c0-6.5 3.5-11 8-12.5C20 15 16.5 20 12 21Z\"/><path d=\"M12 21C12 14.5 8.5 10 4 8.5 4 15 7.5 20 12 21Z\"/></svg>"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "badge_text": "Safe for<br>kids & pets",
+            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3 4.5 6v6.2c0 4.3 3.1 7.6 7.5 8.8 4.4-1.2 7.5-4.5 7.5-8.8V6L12 3Z\"/><path d=\"m9 12 2.2 2.2L15.4 10\"/></svg>"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "badge_text": "Zero harsh<br>chemicals",
+            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"8.4\"/><path d=\"M6.4 17.6 17.6 6.4\"/></svg>"
+          }
+        },
+        {
+          "type": "hero_product",
+          "settings": {
+            "slide_label": "Single bottle",
+            "icon_class_1": "p-kbtl",
+            "custom_price": "200",
+            "custom_compare_price": "299",
+            "discount_text": "33% off"
+          }
+        },
+        {
+          "type": "hero_product",
+          "settings": {
+            "slide_label": "Any 2 products",
+            "icon_class_1": "p-tbtl",
+            "icon_class_2": "p-kbtl",
+            "custom_price": "349",
+            "custom_compare_price": "598",
+            "discount_text": "Save ₹249"
+          }
+        },
+        {
+          "type": "hero_product",
+          "settings": {
+            "slide_label": "Any 3 products",
+            "icon_class_1": "p-tbtl",
+            "icon_class_2": "p-mbtl",
+            "icon_class_3": "p-kbtl",
+            "custom_price": "499",
+            "custom_compare_price": "897",
+            "discount_text": "Save ₹398"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="hero" data-scene="1">
+  <div class="hero-grid">
+
+    {%- assign badge_blocks = section.blocks | where: 'type', 'badge' -%}
+    
+    <style>
+      .hslide img.hp {
+        position: absolute;
+        bottom: 0;
+        object-fit: contain;
+        width: auto;
+        max-width: none;
+      }
+      .hs3 img.b { right: 40%; height: 60%; z-index: 1; }
+      .hs3 img.a { right: 21%; height: 76%; z-index: 2; }
+      .hs3 img.c { right: 2%; height: 100%; z-index: 3; }
+      
+      .hs2 img.a { right: 18%; height: 80%; z-index: 1; }
+      .hs2 img.b { right: 2%; height: 100%; z-index: 2; }
+      
+      .hs1 img.a { right: 2%; height: 100%; z-index: 3; }
+    </style>
+
+    {%- if badge_blocks.size > 0 -%}
+      <div class="badges glass-2" aria-label="Product promises">
+        {%- for block in badge_blocks -%}
+          <div class="badge" {{ block.shopify_attributes }}>
+            <span class="bi">
+              {%- if block.settings.icon_svg != blank -%}
+                {{ block.settings.icon_svg }}
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.4"/><path d="M6.4 17.6 17.6 6.4"/></svg>
+              {%- endif -%}
+            </span>
+            <span>{{ block.settings.badge_text }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div class="hero-copy">
+      <h1 class="d1 rv in">
+        {{ section.settings.heading_line_1 | escape }}<br>
+        {{ section.settings.heading_line_2 | escape }}<br>
+        <span class="lime">{{ section.settings.heading_line_3 | escape }}</span>
+      </h1>
+      <div class="rule rv rv-d1">
+        <i></i>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6.5 3.5-11 8-12.5C20 15 16.5 20 12 21Z"/><path d="M12 21C12 14.5 8.5 10 4 8.5 4 15 7.5 20 12 21Z"/></svg>
+        <i></i>
+      </div>
+      <p class="lede rv rv-d2">{{ section.settings.description | escape }}</p>
+      
+      <div class="hero-cta rv rv-d3">
+        {%- if section.settings.cta_text_1 != blank -%}
+          <a class="btn btn-primary" href="{{ section.settings.cta_link_1 | default: '#shop' }}">
+            {{ section.settings.cta_text_1 | escape }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m-5-6 6 6-6 6"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.cta_text_2 != blank -%}
+          <a class="btn btn-ghost" href="{{ section.settings.cta_link_2 | default: '#how' }}">
+            {{ section.settings.cta_text_2 | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- if badge_blocks.size > 0 -%}
+        <div class="badgestrip rv rv-d4">
+          {%- for block in badge_blocks -%}
+            <div class="glass-2">
+              {%- if block.settings.icon_svg != blank -%}
+                {{ block.settings.icon_svg }}
+              {%- endif -%}
+              {{ block.settings.badge_text | strip_html | truncatewords: 3, "" }}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- assign product_slides = section.blocks | where: 'type', 'hero_product' -%}
+    {%- if product_slides.size > 0 -%}
+      <div class="hero-prod" id="heroProd">
+        <div class="hstage" id="hstage">
+          {%- for block in product_slides -%}
+            {%- assign linked_product = block.settings.linked_product -%}
+            
+            {%- assign active_class = '' -%}
+            {%- if forloop.first -%}{%- assign active_class = 'on' -%}{%- endif -%}
+            
+            {%- assign slide_class = 'hs1' -%}
+            {%- if block.settings.icon_class_2 != blank and block.settings.icon_class_3 != blank -%}
+              {%- assign slide_class = 'hs3' -%}
+            {%- elsif block.settings.icon_class_2 != blank -%}
+              {%- assign slide_class = 'hs2' -%}
+            {%- endif -%}
+
+            <div class="hslide {{ slide_class }} {{ active_class }}" data-n="{{ forloop.index }}" {{ block.shopify_attributes }}>
+              
+              {%- if block.settings.image_1 != blank -%}
+                <img class="hp a d1" src="{{ block.settings.image_1 | image_url: height: 800 }}" alt="Hero Product">
+              {%- elsif block.settings.icon_class_1 != blank -%}
+                <span class="hp {{ block.settings.icon_class_1 | escape }} a d1" role="img"></span>
+              {%- endif -%}
+              
+              {%- if block.settings.image_2 != blank -%}
+                <img class="hp b d2" src="{{ block.settings.image_2 | image_url: height: 800 }}" alt="Hero Product">
+              {%- elsif block.settings.icon_class_2 != blank -%}
+                <span class="hp {{ block.settings.icon_class_2 | escape }} b d2" role="img"></span>
+              {%- endif -%}
+              
+              {%- if block.settings.image_3 != blank -%}
+                <img class="hp c d3" src="{{ block.settings.image_3 | image_url: height: 800 }}" alt="Hero Product">
+              {%- elsif block.settings.icon_class_3 != blank -%}
+                <span class="hp {{ block.settings.icon_class_3 | escape }} c d3" role="img"></span>
+              {%- endif -%}
+
+              <div class="glass-2 ptag">
+                <span class="lbl">{{ block.settings.slide_label | escape }}</span>
+                <span class="val">
+                  <strong>
+                    {%- if linked_product != blank -%}
+                      {{ linked_product.price | money }}
+                    {%- elsif block.settings.custom_price != blank -%}
+                      &#8377;{{ block.settings.custom_price }}
+                    {%- else -%}
+                      &#8377;200
+                    {%- endif -%}
+                  </strong>
+                  <s>
+                    {%- if linked_product != blank and linked_product.compare_at_price > linked_product.price -%}
+                      {{ linked_product.compare_at_price | money }}
+                    {%- elsif block.settings.custom_compare_price != blank -%}
+                      &#8377;{{ block.settings.custom_compare_price }}
+                    {%- endif -%}
+                  </s>
+                </span>
+                {%- if block.settings.discount_text != blank -%}
+                  <span class="cut">{{ block.settings.discount_text | escape }}</span>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+        
+        {%- if product_slides.size > 1 -%}
+          <div class="hdots" id="hdots">
+            {%- for block in product_slides -%}
+              <button type="button" class="{% if forloop.first %}on{% endif %}" aria-label="Show {{ forloop.index }} products"></button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    
+  </div>
+</section>

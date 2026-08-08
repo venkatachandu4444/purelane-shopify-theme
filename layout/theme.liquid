@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      {%- if page_title != blank -%}
+        {{ page_title }}
+      {%- else -%}
+        Purelane &mdash; Plant-based homecare
+      {%- endif -%}
+    </title>
+    <meta
+      name="description"
+      content="{{ page_description | default: 'Plant-based homecare for kitchen, laundry, bathroom and hands. Free shipping across India.' | escape }}"
+    >
+    <meta name="theme-color" content="#eee7fb">
+    {%- if canonical_url != blank -%}
+      <link rel="canonical" href="{{ canonical_url }}">
+    {%- endif -%}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+    {{ 'purelane-base.css' | asset_url | stylesheet_tag }}
+    <style>
+      .shopify-section { display: contents; }
+    </style>
+    {{ content_for_header }}
+  </head>
+  <body>
+    {% section 'purelane-background' %}
+    
+    {{ content_for_layout }}
+    
+    {% section 'purelane-footer' %}
+    
+    {{ 'purelane-animations.js' | asset_url | script_tag }}
+  </body>
+</html>

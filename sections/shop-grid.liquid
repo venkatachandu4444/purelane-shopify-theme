@@ -1,0 +1,77 @@
+{% schema %}
+{
+  "name": "Shop Grid",
+  "tag": "section",
+  "class": "section-shop-grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Bestsellers"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Loved by 30,000 homes"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 12,
+      "step": 4,
+      "default": 4,
+      "label": "Products to show"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop Grid"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="sec" id="shop" data-scene="3">
+  <div class="wrap">
+    <div class="panel-head rv">
+      <span class="kicker">{{ section.settings.kicker | escape }}</span>
+      <h2 class="d2" style="margin-top:12px">{{ section.settings.heading | escape }}</h2>
+      <div class="rule">
+        <i></i>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6.5 3.5-11 8-12.5C20 15 16.5 20 12 21Z"/><path d="M12 21C12 14.5 8.5 10 4 8.5 4 15 7.5 20 12 21Z"/></svg>
+        <i></i>
+      </div>
+    </div>
+    
+    <div class="shelf">
+      {%- assign collection = section.settings.collection -%}
+      {%- if collection != blank and collection.products_count > 0 -%}
+        {%- for product in collection.products limit: section.settings.products_to_show -%}
+          {% render 'product-card', product: product, show_rating: true %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <article class="glass card rv">
+            <div class="shot">
+              {{ 'product-' | append: i | placeholder_svg_tag: 'pimg placeholder-svg' }}
+            </div>
+            <h4>Example Product {{ i }}</h4>
+            <div class="rate"><b>★ 4.8</b> · 100 reviews</div>
+            <div class="pr">
+              <strong>₹200</strong>
+            </div>
+            <button class="btn btn-ghost btn-sm" disabled>Add to cart</button>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>

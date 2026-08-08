@@ -1,0 +1,176 @@
+{% schema %}
+{
+  "name": "Footer",
+  "class": "section-footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Column 1: Brand Info"
+    },
+    {
+      "type": "text",
+      "id": "brand_name_1",
+      "label": "Brand Name Part 1",
+      "default": "Purelane"
+    },
+    {
+      "type": "text",
+      "id": "brand_name_2",
+      "label": "Brand Name Part 2",
+      "default": "Clean, simply"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_description",
+      "label": "Brand Description",
+      "default": "Effective cleaning, powered by nature. Made for Indian homes since day one."
+    },
+    {
+      "type": "header",
+      "content": "Column 2: Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Heading",
+      "default": "Shop"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu"
+    },
+    {
+      "type": "header",
+      "content": "Column 3: Menu 2"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Heading",
+      "default": "About"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu"
+    },
+    {
+      "type": "header",
+      "content": "Column 4: Contact Info"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Heading",
+      "default": "Get in touch"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Email",
+      "default": "hello@purelane.com"
+    },
+    {
+      "type": "text",
+      "id": "contact_phone",
+      "label": "Phone",
+      "default": "+91 9930 123 234"
+    },
+    {
+      "type": "text",
+      "id": "company_name",
+      "label": "Company Name",
+      "default": "Purelane Eco Products Pvt Ltd"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "© 2026 Purelane Eco Products Private Limited"
+    },
+    {
+      "type": "link_list",
+      "id": "bottom_menu",
+      "label": "Bottom Menu"
+    }
+  ]
+}
+{% endschema %}
+
+<footer data-scene="4">
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol">
+        <a class="brand" href="{{ routes.root_url }}" style="margin-bottom:16px">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#b8701c"><path d="M12 21c0-6.5 3.5-11 8-12.5C20 15 16.5 20 12 21Z"/><path d="M12 21C12 14.5 8.5 10 4 8.5 4 15 7.5 20 12 21Z"/><path d="M12 21v-6"/></svg>
+          </span>
+          <span class="txt"><span class="n1">{{ section.settings.brand_name_1 | escape }}</span><span class="n2">{{ section.settings.brand_name_2 | escape }}</span></span>
+        </a>
+        <p style="max-width:30ch">{{ section.settings.brand_description | escape }}</p>
+      </div>
+      
+      <div class="fcol">
+        <h5>{{ section.settings.menu_1_title | escape }}</h5>
+        {%- if section.settings.menu_1 != blank -%}
+          {%- for link in section.settings.menu_1.links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endfor -%}
+        {%- else -%}
+          <a href="#">Bestsellers</a>
+          <a href="#">Kitchen</a>
+          <a href="#">Laundry</a>
+          <a href="#">Home</a>
+          <a href="#">Skin</a>
+          <a href="#">Starter kits</a>
+        {%- endif -%}
+      </div>
+      
+      <div class="fcol">
+        <h5>{{ section.settings.menu_2_title | escape }}</h5>
+        {%- if section.settings.menu_2 != blank -%}
+          {%- for link in section.settings.menu_2.links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endfor -%}
+        {%- else -%}
+          <a href="#">How it works</a>
+          <a href="#">Sustainability</a>
+          <a href="#">FAQs</a>
+          <a href="#">Reviews</a>
+        {%- endif -%}
+      </div>
+      
+      <div class="fcol">
+        <h5>{{ section.settings.contact_title | escape }}</h5>
+        {%- if section.settings.contact_email != blank -%}
+          <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email | escape }}</a>
+        {%- endif -%}
+        {%- if section.settings.contact_phone != blank -%}
+          <a href="tel:{{ section.settings.contact_phone | remove: ' ' }}">{{ section.settings.contact_phone | escape }}</a>
+        {%- endif -%}
+        <p style="font-size:12px;color:rgba(236,230,247,.5)">{{ section.settings.company_name | escape }}</p>
+      </div>
+    </div>
+    
+    <div class="fbot">
+      <span>{{ section.settings.copyright_text | escape }}</span>
+      <div>
+        {%- if section.settings.bottom_menu != blank -%}
+          {%- for link in section.settings.bottom_menu.links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>{% unless forloop.last %} &middot; {% endunless %}
+          {%- endfor -%}
+        {%- else -%}
+          <a href="#">Privacy</a> &middot; 
+          <a href="#">Terms</a> &middot; 
+          <a href="#">Refunds</a> &middot; 
+          <a href="#">Contact</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</footer>

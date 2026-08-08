@@ -1,0 +1,30 @@
+{% comment %}
+  Accepts:
+  - block: {Object} Block containing review details (required)
+
+  Usage:
+  {% render 'review-card', block: block %}
+{% endcomment %}
+
+<article class="glass-2 rcard" {{ block.shopify_attributes }}>
+  <div class="st">
+    {%- for i in (1..5) -%}
+      {%- if i <= block.settings.rating -%}
+        &#9733;
+      {%- else -%}
+        &#9734;
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <h5>{{ block.settings.heading | escape }}</h5>
+  <p>{{ block.settings.review_text | escape }}</p>
+  <div class="who">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m5 13 4 4L19 7"/>
+    </svg>
+    <b>{{ block.settings.reviewer_name | escape }}</b>
+    {%- if block.settings.product_mentioned != blank -%}
+      <span>&middot; {{ block.settings.product_mentioned | escape }}</span>
+    {%- endif -%}
+  </div>
+</article>
